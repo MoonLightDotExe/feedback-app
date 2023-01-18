@@ -7,6 +7,7 @@ import FeedbackData from './data/FeedbackData'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 import AboutPage from './pages/AboutPages'
+import { Link } from 'react-router-dom';
 function App(){
     const [feedback, setFeedback] = useState(FeedbackData)
     
@@ -16,8 +17,8 @@ function App(){
     }
     
     const deleteFeedback = (id) => {
-        if(window.confirm('Are you sure you eant to delete?')){
-        setFeedback(feedback.filter((item) => item.id !== id))
+        if(window.confirm('Are you sure you want to delete?')){
+            setFeedback(feedback.filter((item)=> item.id!== id))
         }
     }
     return(
@@ -33,9 +34,11 @@ function App(){
                         </>
                      }>
                     </Route>
-                    <Route path='/about' component={AboutPage} />
+                   <Route path='/about' element ={ 
+                    <AboutPage />
+                   }> </Route>
                 </Routes>
-
+                   <Link to='/about'>  HI </Link>
             </div>
         </Router>
     )
